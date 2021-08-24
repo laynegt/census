@@ -1,0 +1,188 @@
+@import 'slider.css';
+@import 'usa.css';
+
+body {
+  padding: 10px;
+
+  background-color: #f7f7f7;
+
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+label {
+  font-weight: 600;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "left ticker"
+  ;
+  
+  justify-items: center;
+  /* margin: 20px; */
+}
+
+.left { grid-area: left; }
+.usa { grid-area: usa; }
+.ticker { grid-area: ticker; }
+/* .pops { grid-area: pops; } */
+/* .elections { grid-area: elections; } */
+
+.flex {
+  display: flex;
+}
+
+.rep {
+  width: 10px;
+  height: 20px;
+}
+
+.app {
+  background: #fff;
+}
+
+.count {
+  padding-left: 2px;
+  font-size: 95%;
+  font-weight: 600;
+}
+
+.apportioned {
+  align-items: baseline;
+
+  margin-bottom: 25px;
+  padding: 4px;
+  background-color: rgb(242, 240, 247);
+}
+
+.apportioned * {
+  margin: 0 2px;
+  font-size: 18px;
+}
+
+.apportioned .seats {
+  padding: 0 4px;
+  /* font-weight: 600; */
+}
+
+.apportioned input {
+  width: 50px;
+  
+  text-align: center;
+}
+
+.apportioned button {
+  width: 25px;
+  font-weight: 600;
+}
+
+.apportioned-container {
+  width: 600px;
+
+  align-items: center;
+}
+
+.apportioned-container :first-child {
+  margin-right: 12px;
+}
+
+.state-cell, .tick {
+  cursor: pointer;
+}
+
+.usa .selected .state-cell, .tick.selected {
+  background-color: #FF715B !important;
+  /* color: #333 !important; */
+}
+
+.ticker {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  /* max-width: 600px; */
+}
+
+.tick {
+  transition: background-color 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.6vw;
+  height: 1.5vw;
+  margin: 0.1vw;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  color: white;
+  background-color: #3066BE;
+
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.ticker .rank-384 {
+  /* border-color: #F8CF3A; */
+}
+
+.ticker .last-in {
+  border: 1px solid #F8CF3A !important;
+  /* border: 4px solid gold; */
+}
+
+.almost-hidden {
+  opacity: 0.3;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.pops {
+  display: grid;
+  grid-gap: 0 0;
+  grid-template-columns: repeat(auto-fill, minmax(100px,1fr) minmax(100px,1fr));
+
+  max-width: 350px;
+}
+
+.pops .even {
+  background-color: #ececec;
+}
+
+.pops .state, .pops .pop {
+  padding: 4px;
+}
+
+.pops input {
+  /* height: 50%; */
+  max-width: 80px;
+}
+
+.pops button {
+  border: none;
+  vertical-align: top;
+  background: transparent;
+}

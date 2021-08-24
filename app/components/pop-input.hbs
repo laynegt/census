@@ -1,0 +1,13 @@
+<div class="state {{if (mod @i 2) "odd" "even"}}">
+  {{@state.name}}
+</div>
+<div class="pop {{if (mod @i 2) "odd" "even"}}" {{on "mouseenter" (toggle-action "showActions" this)}} {{on "mouseleave" (pipe (toggle-action "showActions" this) (action (mut this.isEditing false)))}}>
+  {{#if (not this.isEditing)}}
+    <span>{{number-format @state.pop}}</span>
+    {{#if this.showActions}}<button {{on "click" (toggle-action "isEditing" this)}}>✏️</button>{{/if}}
+  {{else}}
+    <Input type="number" @value={{this.newPop}} maxLength="8"/>
+    <button {{on "click" (pipe (fn this.updatePop @state.id this.newPop) (toggle-action "isEditing" this))}}>✅</button>
+    <button {{on "click" (toggle-action "isEditing" this)}}>🚫</button>
+  {{/if}}
+</div>

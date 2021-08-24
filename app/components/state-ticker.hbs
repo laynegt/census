@@ -1,0 +1,15 @@
+<div class="ticker">
+  {{#each this.flattenedRankedStates as |stateId rank|}}
+    {{#if (lt rank this.MAX_RANK)}}
+      <div class="tick
+        rank-{{rank}}
+        {{if (lt rank @numApportioned) "" "almost-hidden"}}
+        {{if (eq rank (sub @numApportioned 1)) "last-in"}}
+        {{if (eq stateId @selectedState) "selected"}}"
+        {{on "click" (fn @clickRank (add rank 1))}}
+        {{on "mouseenter" (fn @selectState stateId)}}
+        {{on "mouseleave" (fn @selectState null)}}
+      >{{stateId}}{{#if (eq rank 384)}}*{{/if}}</div>
+    {{/if}}
+  {{/each}}
+</div>

@@ -1,0 +1,58 @@
+{{page-title "Census Apportionment Viz"}}
+
+<h1>Census Apportionment</h1>
+<p>Seats in the House of Representatives are assigned by calculating a series of "priority values" for each state based on its population.  The state with the highest priority value gets the next available seat.  The process repeats for all remaining priority values until all available 385 seats are assigned, as each state is guaranteed 1 House seat, for a total of 435.  <em>Source: <a href="https://www.census.gov/topics/public-sector/congressional-apportionment/about/computing.html">census.gov</a></em></p>
+
+<p><strong>Instructions:</strong> Increment/decrement the number of seats using the <button>-</button>&nbsp;<button>+</button> buttons, or click on the grid of ordered states on the right to skip to a number directly.</p>
+
+{{!-- <div class="apportioned-container flex">
+  <input class="apportioned" type="range" value={{this.maxApportioned}} min="1" max="500" {{on "input" this.updateApportioned}}>
+  <div>{{this.maxApportioned}}</div>
+</div> --}}
+
+<div class="grid-container">
+  <div class="left">
+    <div class="apportioned flex">
+      <label>Extra Apportioned Seats:</label>
+      <div class="seats">{{this.maxApportioned}}</div>
+      <button {{on "click" (fn this.incApportioned -1)}}>-</button>
+      {{!-- <Input @type="number" @value={{add this.maxApportioned this.padding}} {{on "change" this.updateApportioned}} min="0" max="500" pattern="(0-4)?(0-9)?[0-9]|500"/> --}}
+      <button {{on "click" (fn this.incApportioned 1)}}>+</button>
+    </div>
+
+    <GridCartogram
+      @states={{this.sortedStates}}
+      @ranks={{this.ranks}}
+      @numApportioned={{this.numApportioned}}
+      @selectedState={{this.selectedState}} 
+      @selectState={{this.selectState}}
+    />
+
+    {{!-- <p>
+      Fun facts:
+      <ul>
+        <li><strong>Minnesota</strong> received the last apportioned seat from the 2020 Census.  <strong>New York</strong> was next and was only 82 respondents short.</li>
+        <li><strong>Montana</strong> (1,079,036) was the last state to receive a second House seat.  If 6,371 less people had responded</li>
+        <li><strong>Wyoming</strong> (577,719) would receive a second House seat if the size of the House was increased to 815 seats.</li>
+        <li></li>
+      </ul>
+    </p> --}}
+  </div>
+
+  <StateTicker
+    @states={{this.sortedStates}}
+    @ranks={{this.ranks}}
+    @numApportioned={{this.numApportioned}}
+    @selectedState={{this.selectedState}}
+    @selectState={{this.selectState}}
+    @clickRank={{this.setApportioned}}
+  />
+
+  {{!-- <StatePops
+    @states={{this.sortedStates}}
+    @ranks={{this.ranks}}
+    @numApportioned={{this.numApportioned}}
+    @filterRanks={{this.filterRanks}}
+    @update={{this.updatePop}}
+  /> --}}
+ </div>

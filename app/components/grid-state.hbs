@@ -1,0 +1,8 @@
+<div class="name">{{@state}}</div>
+{{#each (filter (fn this.filterRanks @maxRank) @ranks) as |rank|}}
+  <div
+    class="state-cell grid"
+    style={{compute (fn this.colorScale) rank}}
+    title={{rank}}
+  ></div>
+{{/each}}
