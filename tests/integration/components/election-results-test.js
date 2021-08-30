@@ -13,14 +13,5 @@ module('Integration | Component | election-results', function(hooks) {
     await render(hbs`<ElectionResults />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <ElectionResults>
-        template block text
-      </ElectionResults>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

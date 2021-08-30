@@ -12,6 +12,6 @@ module('Integration | Helper | number-format', function(hooks) {
 
     await render(hbs`{{number-format inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), '1,234');
   });
 });

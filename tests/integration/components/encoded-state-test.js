@@ -12,15 +12,6 @@ module('Integration | Component | encoded-state', function(hooks) {
 
     await render(hbs`<EncodedState />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <EncodedState>
-        template block text
-      </EncodedState>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), '0');
   });
 });

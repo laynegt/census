@@ -9,18 +9,10 @@ module('Integration | Component | state-ticker', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('ranks', { A: [] });
 
-    await render(hbs`<StateTicker />`);
+    await render(hbs`<StateTicker @ranks={{this.ranks}} />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <StateTicker>
-        template block text
-      </StateTicker>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

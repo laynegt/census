@@ -9,18 +9,10 @@ module('Integration | Component | pop-input', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('state', {}); 
 
-    await render(hbs`<PopInput />`);
+    await render(hbs`<PopInput @state={{this.state}}/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <PopInput>
-        template block text
-      </PopInput>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element.textContent.trim());
   });
 });

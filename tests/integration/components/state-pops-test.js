@@ -13,14 +13,5 @@ module('Integration | Component | state-pops', function(hooks) {
     await render(hbs`<StatePops />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <StatePops>
-        template block text
-      </StatePops>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

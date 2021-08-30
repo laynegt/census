@@ -13,14 +13,5 @@ module('Integration | Component | grid-state', function(hooks) {
     await render(hbs`<GridState />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <GridState>
-        template block text
-      </GridState>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

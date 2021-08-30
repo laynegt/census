@@ -7,20 +7,11 @@ module('Integration | Component | grid-cartogram', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('selectState', () => {});
 
-    await render(hbs`<GridCartogram />`);
+    await render(hbs`<GridCartogram @selectState={{this.selectState}}/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <GridCartogram>
-        template block text
-      </GridCartogram>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element.textContent.trim());
   });
 });
