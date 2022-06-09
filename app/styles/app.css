@@ -23,17 +23,21 @@ label {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 20px 20px;
-  grid-template-areas:
-    "left ticker"
-  ;
-  
+  grid-template-areas: 'left ticker';
+
   justify-items: center;
   /* margin: 20px; */
 }
 
-.left { grid-area: left; }
-.usa { grid-area: usa; }
-.ticker { grid-area: ticker; }
+.left {
+  grid-area: left;
+}
+.usa {
+  grid-area: usa;
+}
+.ticker {
+  grid-area: ticker;
+}
 /* .pops { grid-area: pops; } */
 /* .elections { grid-area: elections; } */
 
@@ -76,7 +80,7 @@ label {
 
 .apportioned input {
   width: 50px;
-  
+
   text-align: center;
 }
 
@@ -95,12 +99,14 @@ label {
   margin-right: 12px;
 }
 
-.state-cell, .tick {
+.state-cell,
+.tick {
   cursor: pointer;
 }
 
-.usa .selected .state-cell, .tick.selected {
-  background-color: #FF715B !important;
+.usa .selected .state-cell,
+.tick.selected {
+  background-color: #ff715b !important;
   /* color: #333 !important; */
 }
 
@@ -129,7 +135,7 @@ label {
   border-radius: 3px;
 
   color: white;
-  background-color: #3066BE;
+  background-color: #3066be;
 
   font-size: 1vw;
   font-weight: 600;
@@ -140,7 +146,7 @@ label {
 }
 
 .ticker .last-in {
-  border: 1px solid #F8CF3A !important;
+  border: 1px solid #f8cf3a !important;
   /* border: 4px solid gold; */
 }
 
@@ -152,18 +158,21 @@ label {
   display: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 .pops {
   display: grid;
   grid-gap: 0 0;
-  grid-template-columns: repeat(auto-fill, minmax(100px,1fr) minmax(100px,1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(100px, 1fr) minmax(100px, 1fr)
+  );
 
   max-width: 350px;
 }
@@ -172,7 +181,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #ececec;
 }
 
-.pops .state, .pops .pop {
+.pops .state,
+.pops .pop {
   padding: 4px;
 }
 

@@ -1,7 +1,11 @@
 <div class="usa">
   {{#each this.grid as |row|}}
     {{#each row as |state|}}
-      <div class="grid {{if state "state"}} {{if (includes (sub @numApportioned 1) (get @ranks state)) "last-in"}} {{if (eq state @selectedState) "selected"}}"
+      <div
+        class="grid
+          {{if state "state"}}
+          {{if (includes (sub @numApportioned 1) (get @ranks state)) "last-in"}}
+          {{if (eq state @selectedState) "selected"}}"
         {{on "mouseenter" (fn @selectState state)}}
         {{on "mouseleave" (fn @selectState null)}}
       >

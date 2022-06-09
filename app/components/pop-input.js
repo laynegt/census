@@ -9,7 +9,7 @@ export default class PopInputComponent extends Component {
 
   constructor() {
     super(...arguments);
-    
+
     this.newPop = this.args.state.pop;
   }
 

@@ -6,22 +6,40 @@
     <div>{{number-format state.pop}}</div>
     <div class="flex">
       {{#let (get @ranks state.name) as |stateRanks|}}
-        {{!-- <div class="rep app"></div> --}}
-        {{#let (filter (fn @filterRanks @numApportioned) stateRanks) as |filteredRanks|}}
+        {{! <div class="rep app"></div> }}
+        {{#let
+          (filter (fn @filterRanks @numApportioned) stateRanks)
+          as |filteredRanks|
+        }}
           {{#each filteredRanks as |stateRank|}}
-            <div class="rep {{concat "rank-" stateRank}}
-              {{if (lt stateRank @numApportioned) "app"}}
-              {{if (and (lte (sub @numApportioned stateRank) 1) (gt (sub @numApportioned stateRank) 0)) "last-in"}}
-              {{if (lt stateRank 100) "tier-1"
-                (if (lt stateRank 200) "tier-2"
-                  (if (lt stateRank 300) "tier-3"
-                    (if (lt stateRank 400) "tier-4")
+            <div
+              class="rep
+                {{concat "rank-" stateRank}}
+                {{if (lt stateRank @numApportioned) "app"}}
+                {{if
+                  (and
+                    (lte (sub @numApportioned stateRank) 1)
+                    (gt (sub @numApportioned stateRank) 0)
                   )
-                )
-              }}
-            "
-            style={{compute (fn this.colorScale) stateRank}}
-            title={{stateRank}}></div>
+                  "last-in"
+                }}
+                {{if
+                  (lt stateRank 100)
+                  "tier-1"
+                  (if
+                    (lt stateRank 200)
+                    "tier-2"
+                    (if
+                      (lt stateRank 300)
+                      "tier-3"
+                      (if (lt stateRank 400) "tier-4")
+                    )
+                  )
+                }}
+                "
+              style={{compute this.colorScale stateRank}}
+              title={{stateRank}}
+            ></div>
           {{/each}}
 
           {{! REDO this to draw by rank so i can animate it??!}}

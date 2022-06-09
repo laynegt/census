@@ -1,9 +1,12 @@
 {{#let (filter (fn this.filterRanks @maxRank) @ranks) as |votes|}}
   <div
     class="state-cell encoded {{if (gt votes.length 22) "dark"}}"
-    style={{compute (fn this.colorScale) (add votes.length)}}
+    style={{compute this.colorScale (add votes.length)}}
   >
     <div>{{@state.id}}</div>
-    <div>{{add votes.length 0}}{{!-- {{#if (gt votes.length @state.baseSeats)}}&#9650;{{/if}}{{#if (lt votes.length @state.baseSeats)}}&#9660;{{/if}} --}}</div>
+    <div>{{add
+        votes.length
+        0
+      }}{{!-- {{#if (gt votes.length @state.baseSeats)}}&#9650;{{/if}}{{#if (lt votes.length @state.baseSeats)}}&#9660;{{/if}} --}}</div>
   </div>
 {{/let}}

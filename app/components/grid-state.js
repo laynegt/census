@@ -9,9 +9,11 @@ export default class GridStateComponent extends Component {
     return rank < maxApportioned;
   }
 
-  @action 
+  @action
   colorScale(rank) {
-    return htmlSafe('background-color: ' + d3Scale.interpolateRdYlBu(rank / (this.args.maxRank - 1)));
+    return htmlSafe(
+      'background-color: ' +
+        d3Scale.interpolateRdYlBu(rank / (this.args.maxRank - 1))
+    );
   }
-
 }

@@ -12,7 +12,7 @@ export default class EncodedStateComponent extends Component {
     return rank < maxApportioned;
   }
 
-  @action 
+  @action
   colorScale(votes) {
     // pad minimum value to get a darker minimum color
     let val = (votes + 6) / this.MAX_VOTES;

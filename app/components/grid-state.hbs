@@ -2,7 +2,7 @@
 {{#each (filter (fn this.filterRanks @maxRank) @ranks) as |rank|}}
   <div
     class="state-cell grid"
-    style={{compute (fn this.colorScale) rank}}
+    style={{compute this.colorScale rank}}
     title={{rank}}
   ></div>
 {{/each}}

@@ -7,7 +7,7 @@ export default class StateTickerComponent extends Component {
     let flattened = [];
 
     Object.entries(this.args.ranks).forEach(([stateId, ranks]) => {
-      ranks.forEach(rank => {
+      ranks.forEach((rank) => {
         // yup, ranks are zero-indexed
         flattened[rank] = stateId;
       });

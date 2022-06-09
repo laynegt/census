@@ -4,8 +4,11 @@ import { htmlSafe } from '@ember/template';
 import d3Scale from 'd3-scale-chromatic';
 
 export default class BarChartComponent extends Component {
-  @action 
+  @action
   colorScale(rank) {
-    return htmlSafe('background-color: ' + d3Scale.interpolateRdYlBu(rank / (this.args.numApportioned - 1)));
+    return htmlSafe(
+      'background-color: ' +
+        d3Scale.interpolateRdYlBu(rank / (this.args.numApportioned - 1))
+    );
   }
 }

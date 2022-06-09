@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class StatesController extends Controller {
   NUM_COEFF = 100;
-  
+
   @tracked maxApportioned = 0;
   @tracked padding = 0;
   @tracked selectedState;
@@ -28,8 +28,8 @@ export default class StatesController extends Controller {
   @action
   selectState(state) {
     if (this.selectedState === state) {
-      this.selectedState = null;  
-    } else { 
+      this.selectedState = null;
+    } else {
       this.selectedState = state;
     }
   }
@@ -49,7 +49,7 @@ export default class StatesController extends Controller {
   }
 
   get sortedStates() {
-    return this.model.sort((a,b) => {
+    return this.model.sort((a, b) => {
       return b.pop - a.pop;
     });
   }
@@ -57,10 +57,10 @@ export default class StatesController extends Controller {
   get coefficients() {
     let coefficients = {};
 
-    this.model.forEach(state => {
+    this.model.forEach((state) => {
       let stateCoeffs = [];
 
-      for (let i=2; i<this.NUM_COEFF+2; i++) {
+      for (let i = 2; i < this.NUM_COEFF + 2; i++) {
         stateCoeffs.push(this.geoMean(i) * state.pop);
       }
 
@@ -81,15 +81,15 @@ export default class StatesController extends Controller {
     }
 
     // sort desending
-    allCoeffs.sort((a,b) => b-a);
+    allCoeffs.sort((a, b) => b - a);
 
     // go back thru coefficients and recreate an array with ranks
     let ranksByState = {};
     for (let id in this.coefficients) {
       let stateRanks = [];
       let stateCoeffs = this.coefficients[id];
-      
-      stateCoeffs.forEach(stateCoeff => {
+
+      stateCoeffs.forEach((stateCoeff) => {
         // find its rank
         let rank = allCoeffs.indexOf(stateCoeff);
         stateRanks.push(rank);
@@ -107,6 +107,6 @@ export default class StatesController extends Controller {
       throw new Error('no geo mean of 1');
     }
 
-    return 1/Math.sqrt(n*(n-1));
+    return 1 / Math.sqrt(n * (n - 1));
   }
 }
