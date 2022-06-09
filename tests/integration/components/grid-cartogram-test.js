@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | grid-cartogram', function(hooks) {
+module('Integration | Component | grid-cartogram', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     // Handle any actions with this.set('myAction', function(val) { ... });
     this.set('selectState', () => {});
 
