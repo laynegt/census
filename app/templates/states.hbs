@@ -19,9 +19,9 @@
     <div class="apportioned flex">
       <label>Extra Apportioned Seats:</label>
       <div class="seats">{{this.maxApportioned}}</div>
-      <button type="button" {{on "click" (fn this.incApportioned -1)}}>-</button>
+      <button type="button" class="minus" {{on "click" (fn this.incApportioned -1)}}>-</button>
       {{!-- <Input @type="number" @value={{add this.maxApportioned this.padding}} {{on "change" this.updateApportioned}} min="0" max="500" pattern="(0-4)?(0-9)?[0-9]|500"/> --}}
-      <button type="button" {{on "click" (fn this.incApportioned 1)}}>+</button>
+      <button type="button" class="plus" {{on "click" (fn this.incApportioned 1)}}>+</button>
     </div>
 
     <GridCartogram
