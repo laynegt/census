@@ -199,8 +199,8 @@ module('Acceptance | interactions', function (hooks) {
     await click('.tick.rank-4');
     assert.dom('.usa .grid:nth-child(34)').hasText('NY 1');
 
-    // skip to 438
-    await click('.tick.rank-437');
+    // skip to 385
+    await click('.tick.rank-384');
     assert.dom('.usa .grid:nth-child(30)').hasText('MN 7');
   });
 

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 export default class StateTickerComponent extends Component {
-  MAX_RANK = 800;
+  MAX_RANK = 385;
 
   get flattenedRankedStates() {
     let flattened = [];
