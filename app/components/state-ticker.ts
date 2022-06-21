@@ -2,15 +2,21 @@ import Component from '@glimmer/component';
 
 type RankDict = { [key: string]: [number] };
 
+// type ClickRankFunction = (rank: number) => void;
+
 interface StateTickerArgs {
+  clickRank: (rank: number) => void;
+  numApportioned: number;
   ranks: RankDict;
+  selectState: (id: string | null) => void;
+  selectedState: string;
 }
 
 export default class StateTickerComponent extends Component<StateTickerArgs> {
   MAX_RANK = 385;
 
-  get flattenedRankedStates() {
-    let flattened: { [key: number]: string } = []; // k: rank, v: state id
+  get flattenedRankedStates(): string[] {
+    const flattened: string[] = []; // array of state ids, index is the rank
 
     Object.entries(this.args.ranks).forEach(([stateId, ranks]) => {
       ranks.forEach((rank) => {

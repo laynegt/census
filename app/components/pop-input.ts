@@ -3,28 +3,27 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { State } from '../types/state';
 
-type UpdateFunction = (id: number, pop: number) => void;
-
-interface PopInputSignature {
-  Args: {
-    state: State;
-    update: UpdateFunction;
-  };
+interface Args {
+  i: number;
+  state: State;
+  update: (id: string, pop: number) => void; // outgoing pop is a number
+  value: number;
 }
 
-export default class PopInputComponent extends Component<PopInputSignature> {
+export default class PopInputComponent extends Component<Args> {
   @tracked showActions = false;
   @tracked isEditing = false;
-  @tracked newPop = 0;
+  @tracked newPop;
 
-  // constructor() {
-  //   super(...arguments);
+  constructor(owner: unknown, args: Args) {
+    super(owner, args);
 
-  //   this.newPop = this.args.state.pop;
-  // }
+    // stringify for form input
+    this.newPop = this.args.state.pop ? this.args.state.pop.toString() : '';
+  }
 
   @action
-  updatePop(stateId: number, pop: string): void {
+  updatePop(stateId: string, pop: string): void {
     if (parseInt(pop, 10) !== this.args.state.pop) {
       this.args.update(stateId, parseInt(pop, 10));
     }

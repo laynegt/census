@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | state-pops', function (hooks) {
   setupRenderingTest(hooks);
@@ -12,6 +12,6 @@ module('Integration | Component | state-pops', function (hooks) {
 
     await render(hbs`<StatePops />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '');
+    assert.dom(this.element as Element).hasAnyText();
   });
 });
