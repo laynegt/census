@@ -10,6 +10,8 @@ import { SafeString } from 'handlebars';
 interface GridStateSignature {
   Args: {
     maxRank: number;
+    ranks: number;
+    state: string;
   };
 }
 
