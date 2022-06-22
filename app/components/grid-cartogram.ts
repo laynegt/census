@@ -2,17 +2,15 @@ import Component from '@glimmer/component';
 
 type SelectStateFunction = (id: string | null) => void;
 
-interface GridCartogramSignature {
-  Args: {
-    numApportioned: number;
-    ranks: { [key: string]: number[] };
-    selectState: SelectStateFunction;
-    selectedState: string;
-    states: string[];
-  };
+interface Args {
+  numApportioned: number;
+  ranks: { [key: string]: number[] };
+  selectState: SelectStateFunction;
+  selectedState: string;
+  states: string[];
 }
 
-export default class GridCartogramComponent extends Component<GridCartogramSignature> {
+export default class GridCartogramComponent extends Component<Args> {
   // 12 x 8
   grid = [
     ['', '', '', '', '', '', '', '', '', '', '', 'ME'],
@@ -24,4 +22,10 @@ export default class GridCartogramComponent extends Component<GridCartogramSigna
     ['AK', '', '', '', 'OK', 'LA', 'MS', 'AL', 'GA', '', '', ''],
     ['HI', '', '', '', 'TX', '', '', '', '', 'FL', '', ''],
   ];
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'GridCartogramComponent': typeof GridCartogramComponent;
+  }
 }

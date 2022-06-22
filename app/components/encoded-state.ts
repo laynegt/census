@@ -2,17 +2,15 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import { interpolatePurples } from 'd3-scale-chromatic';
-import { State } from 'census/types/state';
+import State from '../utils/state';
 
-interface EncodedStateSignature {
-  Args: {
-    maxRank: number;
-    ranks: number[];
-    state: State;
-  };
+interface Args {
+  maxRank: number;
+  ranks: number[];
+  state: State;
 }
 
-export default class EncodedStateComponent extends Component<EncodedStateSignature> {
+export default class EncodedState extends Component<Args> {
   // hardcode for now
   MAX_VOTES = 65;
 
@@ -27,5 +25,11 @@ export default class EncodedStateComponent extends Component<EncodedStateSignatu
     const val = (votes + 6) / this.MAX_VOTES;
 
     return htmlSafe('background-color: ' + interpolatePurples(val));
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'EncodedState': typeof EncodedState;
   }
 }
