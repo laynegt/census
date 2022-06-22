@@ -3,7 +3,7 @@ import State from '../utils/state';
 
 export default class StatesRoute extends Route {
   model() {
-    let states = [
+    const states = [
       {
         id: 'AL',
         name: 'Alabama',

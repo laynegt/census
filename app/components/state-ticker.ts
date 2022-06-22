@@ -4,7 +4,7 @@ type RankDict = { [key: string]: [number] };
 
 // type ClickRankFunction = (rank: number) => void;
 
-interface StateTickerArgs {
+interface Args {
   clickRank: (rank: number) => void;
   numApportioned: number;
   ranks: RankDict;
@@ -12,7 +12,7 @@ interface StateTickerArgs {
   selectedState: string;
 }
 
-export default class StateTickerComponent extends Component<StateTickerArgs> {
+export default class StateTickerComponent extends Component<Args> {
   MAX_RANK = 385;
 
   get flattenedRankedStates(): string[] {
@@ -26,5 +26,11 @@ export default class StateTickerComponent extends Component<StateTickerArgs> {
     });
 
     return flattened;
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'StateTickerComponent': typeof StateTickerComponent;
   }
 }

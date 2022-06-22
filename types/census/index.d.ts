@@ -6,11 +6,11 @@ import '@glint/environment-ember-loose';
 // import '@glint/environment-ember-loose/native-integration';
 
 // FIXME: Remove this catch-all before merge
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    [key: string]: any;
-  }
-}
+// declare module '@glint/environment-ember-loose/registry' {
+//   export default interface Registry {
+//     [key: string]: any;
+//   }
+// }
 
 declare global {
   // Prevents ESLint from "fixing" this via its auto-fix to turn it into a type
