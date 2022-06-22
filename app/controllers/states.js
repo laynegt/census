@@ -67,7 +67,7 @@ export default class StatesController extends Controller {
       coefficients[state.id] = stateCoeffs;
     });
 
-    console.log('coefficients');
+    // console.log('coefficients');
     return coefficients;
   }
 
@@ -98,7 +98,7 @@ export default class StatesController extends Controller {
       ranksByState[id] = stateRanks;
     }
 
-    console.log('ranks');
+    // console.log('ranks');
     return ranksByState;
   }
 

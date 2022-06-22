@@ -29,6 +29,6 @@ export default class GridStateComponent extends Component<Args> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'GridStateComponent': typeof GridStateComponent;
+    GridStateComponent: typeof GridStateComponent;
   }
 }

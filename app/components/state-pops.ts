@@ -11,6 +11,6 @@ export default class StatePops extends Component<Args> {}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'StatePops': typeof StatePops;
+    StatePops: typeof StatePops;
   }
 }

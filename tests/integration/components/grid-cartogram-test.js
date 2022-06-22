@@ -8,7 +8,9 @@ module('Integration | Component | grid-cartogram', function (hooks) {
 
   test('it renders', async function (assert) {
     // Handle any actions with this.set('myAction', function(val) { ... });
-    this.set('selectState', () => {});
+    this.set('selectState', () => {
+      undefined;
+    });
 
     await render(hbs`<GridCartogram @selectState={{this.selectState}}/>`);
 

@@ -1,5 +1,5 @@
 import { TemplateFactory } from 'htmlbars-inline-precompile';
-import { ComponentLike, HelperLike } from '@glint/template';
+import { HelperLike } from '@glint/template';
 import AndHelper from '@gavant/glint-template-types/types/ember-truth-helpers/and';
 import EqHelper from '@gavant/glint-template-types/types/ember-truth-helpers/eq';
 import GtHelper from '@gavant/glint-template-types/types/ember-truth-helpers/gt';
@@ -40,7 +40,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: any;
     }>;
     filter: HelperLike<{
-      Args: { Positional: [filter: Function, items: any[]] };
+      Args: { Positional: [filter: any, items: any[]] };
       Return: any[];
     }>;
     'find-by': HelperLike<{
@@ -59,6 +59,5 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [prop: string, this: any] };
       Return: any;
     }>;
-    
   }
 }

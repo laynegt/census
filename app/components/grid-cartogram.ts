@@ -26,6 +26,6 @@ export default class GridCartogramComponent extends Component<Args> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'GridCartogramComponent': typeof GridCartogramComponent;
+    GridCartogramComponent: typeof GridCartogramComponent;
   }
 }

@@ -31,6 +31,6 @@ export default class StateTickerComponent extends Component<Args> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'StateTickerComponent': typeof StateTickerComponent;
+    StateTickerComponent: typeof StateTickerComponent;
   }
 }

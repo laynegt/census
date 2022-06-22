@@ -2,7 +2,7 @@ import { helper } from '@ember/component/helper';
 import { HelperLike } from '@glint/template';
 
 export function numberFormat(positional: [number]) {
-  let formatMe = positional[0];
+  const formatMe = positional[0];
   return Intl.NumberFormat().format(formatMe);
 }
 

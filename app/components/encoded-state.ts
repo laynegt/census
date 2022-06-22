@@ -30,6 +30,6 @@ export default class EncodedState extends Component<Args> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'EncodedState': typeof EncodedState;
+    EncodedState: typeof EncodedState;
   }
 }

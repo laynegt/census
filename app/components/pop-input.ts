@@ -32,6 +32,6 @@ export default class PopInput extends Component<Args> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'PopInput': typeof PopInput;
+    PopInput: typeof PopInput;
   }
 }
