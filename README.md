@@ -1,3 +1,5 @@
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/1895c6ae/census)
+
 # census
 
 This README outlines the details of collaborating on this Ember application.
