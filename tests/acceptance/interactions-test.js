@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { visit, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'census/tests/helpers';
+import percySnapshot from '@percy/ember';
 
 module('Acceptance | interactions', function (hooks) {
   setupApplicationTest(hooks);
@@ -9,6 +10,7 @@ module('Acceptance | interactions', function (hooks) {
     assert.expect(96);
 
     await visit('/');
+    await percySnapshot('usa');
 
     assert.dom('.usa .grid:nth-child(1)').hasNoText();
     assert.dom('.usa .grid:nth-child(2)').hasNoText();
