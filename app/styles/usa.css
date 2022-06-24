@@ -37,7 +37,7 @@
 }
 
 .state-cell.encoded {
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 
   /* box-sizing: border-box; */
   width: 100%;
@@ -63,11 +63,20 @@
   color: #3066BE;
 } */
 
+.usa.hide-labels :not(.last-in) .state-cell.encoded {
+  /* display: none; */
+  color: transparent !important;
+}
+
+.usa.show-labels .state-cell.encoded {
+  /* display: none;  */
+  /* color: transparent !important; */
+}
+
 .usa .state-cell.dark {
-  color: white;
+  color: white !important;
 }
 
 .usa .last-in .state-cell.encoded {
-  /* border-color: #F8CF3A; */
-  background-color: #f8cf3a !important;
+  /* background-color: #f8cf3a !important; */
 }

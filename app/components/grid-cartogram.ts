@@ -1,3 +1,5 @@
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import Component from '@glimmer/component';
 
 type SelectStateFunction = (id: string | null) => void;
@@ -22,6 +24,18 @@ export default class GridCartogramComponent extends Component<Args> {
     ['AK', '', '', '', 'OK', 'LA', 'MS', 'AL', 'GA', '', '', ''],
     ['HI', '', '', '', 'TX', '', '', '', '', 'FL', '', ''],
   ];
+
+  @tracked areLabelsOn = false;
+
+  @action
+  showLabels(): void {
+    this.areLabelsOn = true;
+  }
+
+  @action
+  hideLabels(): void {
+    this.areLabelsOn = false;
+  }
 }
 
 declare module '@glint/environment-ember-loose/registry' {
