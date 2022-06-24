@@ -26,8 +26,11 @@ export default class EncodedState extends Component<Args> {
       textVal = (votes + 30) / this.MAX_VOTES;
 
     return htmlSafe(
-      'background-color: ' + interpolatePurples(bgVal)
-      + '; color: ' + interpolateGreys(textVal));
+      'background-color: ' +
+        interpolatePurples(bgVal) +
+        '; color: ' +
+        interpolateGreys(textVal)
+    );
   }
 }
 
