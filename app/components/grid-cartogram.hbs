@@ -1,4 +1,4 @@
-<div class="usa">
+<div class="usa {{if this.areLabelsOn "show-labels" "hide-labels"}}" {{on "mouseenter" this.showLabels}} {{on "mouseleave" this.hideLabels}}>
   {{#each this.grid as |row|}}
     {{#each row as |state|}}
       <div

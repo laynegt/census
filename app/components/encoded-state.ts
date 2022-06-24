@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/template';
-import { interpolatePurples } from 'd3-scale-chromatic';
+import { interpolateGreys, interpolatePurples } from 'd3-scale-chromatic';
 import State from '../utils/state';
 
 interface Args {
@@ -22,9 +22,12 @@ export default class EncodedState extends Component<Args> {
   @action
   colorScale(votes: number) {
     // pad minimum value to get a darker minimum color
-    const val = (votes + 6) / this.MAX_VOTES;
+    const bgVal = (votes + 9) / this.MAX_VOTES,
+      textVal = (votes + 30) / this.MAX_VOTES;
 
-    return htmlSafe('background-color: ' + interpolatePurples(val));
+    return htmlSafe(
+      'background-color: ' + interpolatePurples(bgVal)
+      + '; color: ' + interpolateGreys(textVal));
   }
 }
 
