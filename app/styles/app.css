@@ -10,6 +10,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#ember-testing * {
+  transition: none !important;
+}
+
 h1 {
   margin-top: 0;
 }

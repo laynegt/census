@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, click } from '@ember/test-helpers';
+import { visit, click, triggerEvent } from '@ember/test-helpers';
 import { setupApplicationTest } from 'census/tests/helpers';
 import percySnapshot from '@percy/ember';
 
@@ -7,7 +7,7 @@ module('Acceptance | interactions', function (hooks) {
   setupApplicationTest(hooks);
 
   test('usa is usa shaped', async function (assert) {
-    assert.expect(96);
+    assert.expect(98);
 
     await visit('/');
     await percySnapshot('usa');
@@ -115,6 +115,19 @@ module('Acceptance | interactions', function (hooks) {
     assert.dom('.usa .grid:nth-child(94)').hasText('FL 0');
     assert.dom('.usa .grid:nth-child(95)').hasNoText();
     assert.dom('.usa .grid:nth-child(96)').hasNoText();
+
+    assert
+      .dom('.usa .grid:nth-child(94) .state-cell')
+      .hasStyle({ color: 'rgba(0, 0, 0, 0)' });
+
+    // show labels
+    await triggerEvent('.usa', 'mouseenter');
+
+    await percySnapshot('usa w/ labels');
+
+    assert
+      .dom('.usa .grid:nth-child(94) .state-cell')
+      .doesNotHaveStyle({ color: 'rgba(0, 0, 0, 0)' });
   });
 
   test('expected counts at 435', async function (assert) {
