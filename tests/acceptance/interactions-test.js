@@ -220,12 +220,18 @@ module('Acceptance | interactions', function (hooks) {
   });
 
   test('clicking on plus/minus buttons', async function (assert) {
-    assert.expect(9);
+    assert.expect(12);
 
     await visit('/');
 
+    // minus is disabled when at 0 seats
+    assert.dom('.apportioned button.minus').isDisabled();
+    assert.dom('.apportioned button.plus').isEnabled();
+
     await click('.apportioned button.plus');
     assert.dom('.usa .grid:nth-child(50)').hasText('CA 1');
+
+    assert.dom('.apportioned button.minus').isEnabled();
 
     await click('.apportioned button.plus');
     assert.dom('.usa .grid:nth-child(89)').hasText('TX 1');

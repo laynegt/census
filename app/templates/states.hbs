@@ -7,7 +7,7 @@
   <em>Source: <a href="https://www.census.gov/topics/public-sector/congressional-apportionment/about/computing.html">census.gov</a></em>
 </p>
 
-<p><strong>Instructions:</strong> Increment/decrement the number of seats using the <button type="button">-</button>&nbsp;<button type="button">+</button> buttons, or click on the grid of ordered states on the right to skip to a number directly.</p>
+<p class="instructions"><strong>Instructions:</strong> Increment/decrement the number of seats using the <button type="button">-</button>&nbsp;<button type="button">+</button> buttons, or click on the grid of ordered states on the right to skip to a number directly.</p>
 
 {{!-- <div class="apportioned-container flex">
   <input class="apportioned" type="range" value={{this.maxApportioned}} min="1" max="500" {{on "input" this.updateApportioned}}>
@@ -17,9 +17,9 @@
 <div class="grid-container">
   <div class="left">
     <div class="apportioned flex">
-      <label>Extra Apportioned Seats:</label>
+      <label>Apportioned Seats:</label>
       <div class="seats">{{this.maxApportioned}}</div>
-      <button type="button" class="minus" {{on "click" (fn this.incApportioned -1)}}>-</button>
+      <button type="button" class="minus" disabled={{lte this.numApportioned 0}} {{on "click" (fn this.incApportioned -1)}}>-</button>
       {{!-- <Input @type="number" @value={{add this.maxApportioned this.padding}} {{on "change" this.updateApportioned}} min="0" max="500" pattern="(0-4)?(0-9)?[0-9]|500"/> --}}
       <button type="button" class="plus" {{on "click" (fn this.incApportioned 1)}}>+</button>
     </div>

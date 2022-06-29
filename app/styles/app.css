@@ -58,6 +58,14 @@ label {
   background: #fff;
 }
 
+.instructions button {
+  text-align: center;
+  font-size: 12px;
+  min-width: 17px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 .count {
   padding-left: 2px;
   font-size: 95%;
