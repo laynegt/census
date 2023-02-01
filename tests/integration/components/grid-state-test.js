@@ -12,6 +12,6 @@ module('Integration | Component | grid-state', function (hooks) {
 
     await render(hbs`<GridState />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '');
+    assert.dom().hasNoText();
   });
 });

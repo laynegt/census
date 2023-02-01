@@ -12,6 +12,6 @@ module('Integration | Helper | number-format', function (hooks) {
 
     await render(hbs`{{number-format this.inputValue}}`);
 
-    assert.dom(this.element).hasText('1,234');
+    assert.dom().hasText('1,234');
   });
 });

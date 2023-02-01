@@ -13,6 +13,6 @@ module('Integration | Component | pop-input', function (hooks) {
 
     await render(hbs`<PopInput @state={{this.state}}/>`);
 
-    assert.ok(this.element.textContent.trim());
+    assert.dom().hasAnyText();
   });
 });

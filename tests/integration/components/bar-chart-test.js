@@ -12,6 +12,6 @@ module('Integration | Component | bar-chart', function (hooks) {
 
     await render(hbs`<BarChart />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '');
+    assert.dom().hasNoText();
   });
 });

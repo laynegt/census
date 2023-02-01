@@ -12,6 +12,6 @@ module('Integration | Component | encoded-state', function (hooks) {
 
     await render(hbs`<EncodedState />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '0');
+    assert.dom().hasText('0');
   });
 });

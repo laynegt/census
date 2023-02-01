@@ -14,6 +14,6 @@ module('Integration | Component | grid-cartogram', function (hooks) {
 
     await render(hbs`<GridCartogram @selectState={{this.selectState}}/>`);
 
-    assert.ok(this.element.textContent.trim());
+    assert.dom().hasAnyText();
   });
 });

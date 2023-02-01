@@ -13,6 +13,6 @@ module('Integration | Component | state-ticker', function (hooks) {
 
     await render(hbs`<StateTicker @ranks={{this.ranks}} />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '');
+    assert.dom().hasNoText();
   });
 });

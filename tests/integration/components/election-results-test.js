@@ -12,6 +12,6 @@ module('Integration | Component | election-results', function (hooks) {
 
     await render(hbs`<ElectionResults />`);
 
-    assert.strictEqual(this.element.textContent.trim(), '');
+    assert.dom().hasNoText();
   });
 });
