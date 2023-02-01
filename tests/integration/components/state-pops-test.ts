@@ -12,6 +12,6 @@ module('Integration | Component | state-pops', function (hooks) {
 
     await render(hbs`<StatePops />`);
 
-    assert.dom(this.element as Element).hasAnyText();
+    assert.dom().hasAnyText();
   });
 });
